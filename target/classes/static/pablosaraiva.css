@@ -1,0 +1,68 @@
+body {
+	font-family: "Courier New", "Courier", "monospace";
+	background-color: #111111;
+	color: white;
+}
+
+div.header {
+	font-size: 50px;
+	text-align: center;
+	line-height: 200px;
+	height: 200px;
+}
+
+div.banner {
+	width: 15%;
+	float: left;
+}
+
+div.menu {
+	text-align: right;
+}
+
+div.main {
+	font-size: 30px;
+	min-height: 200px;
+	overflow: auto;
+}
+
+div.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	font-size: 15px;
+	height: 100px;
+}
+
+.do-blink {
+	animation: blinker 1.0s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+}
+
+div span.menu-item {
+	text-align: right;
+}
+
+div span.banner {
+	text-align: left;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	color: limegreen;
+	text-decoration: underline;
+}
+
+span.pi {
+	font-size: 5px;
+	color: #555555;
+}
+
+@keyframes blinker {
+	to {
+		opacity: 0;
+	}
+}
