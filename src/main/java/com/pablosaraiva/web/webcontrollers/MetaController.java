@@ -1,11 +1,9 @@
 package com.pablosaraiva.web.webcontrollers;
 
-import com.pablosaraiva.web.services.VisitorService;
+import com.pablosaraiva.web.core.VisitorService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.Random;
 
 @Controller
 public class MetaController {
