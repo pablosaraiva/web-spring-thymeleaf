@@ -1,4 +1,4 @@
-package com.pablosaraiva.web.services;
+package com.pablosaraiva.web.core;
 
 import org.springframework.stereotype.Service;
 
