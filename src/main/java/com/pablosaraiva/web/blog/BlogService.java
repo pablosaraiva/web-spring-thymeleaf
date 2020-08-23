@@ -29,8 +29,6 @@ public class BlogService {
 
     private BlogPost buildFakePost(String id) {
         final String content = Processor.process(
-                "# \n" +
-                "\n" +
                 "## TLS Protocols\n" +
                 "\n" +
                 "Today I saw this post on [StackExchange Meta](https://meta.stackexchange.com/questions/343302/tls-1-0-and-tls-1-1-removal-for-stack-exchange-services?cb=1)\n" +
@@ -216,7 +214,7 @@ public class BlogService {
                 "      add_header Strict-Transport-Security \"max-age=31536000; includeSubDomains\" always;\n" +
                 "</pre>\n" +
                 "\n" +
-                ":tada:");
+                "\uD83C\uDF89");
 
         return new BlogPost(
                 "Improving security",
