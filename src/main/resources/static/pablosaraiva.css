@@ -46,7 +46,7 @@ div span.banner {
 }
 
 a {
-	color: white;
+	color: darkseagreen;
 	text-decoration: none;
 }
 
@@ -62,6 +62,10 @@ span.pi {
 
 .page-title {
 	color: limegreen;
+}
+
+pre {
+	color: #999999;
 }
 
 @keyframes blinker {
