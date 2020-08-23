@@ -1,7 +1,6 @@
 package com.pablosaraiva.web.blog;
 
 import com.github.rjeschke.txtmark.Processor;
-import com.pablosaraiva.web.blog.BlogService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
