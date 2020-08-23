@@ -1,14 +1,17 @@
 package com.pablosaraiva.web.blog;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class BlogPost {
+    private final String id;
     private final String title;
     private final String content;
     private final String summary;
     private final LocalDateTime dateTime;
 
     public BlogPost(String title, String content, String summary, LocalDateTime dateTime) {
+        this.id = UUID.randomUUID().toString();
         this.title = title;
         this.content = content;
         this.summary = summary;
@@ -29,5 +32,9 @@ public class BlogPost {
 
     public LocalDateTime getDateTime() {
         return dateTime;
+    }
+
+    public String getId() {
+        return id;
     }
 }

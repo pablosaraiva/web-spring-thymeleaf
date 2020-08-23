@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>pablosaraiva.com</title>
-	<link rel="stylesheet" type="text/css" href="pablosaraiva.css">
+	<link rel="stylesheet" type="text/css" href="/pablosaraiva.css">
 </head>
 
 <body>
@@ -16,7 +16,7 @@
 	<h1 class="page-title">Blog</h1>
 
 	<div th:each="post: ${posts}">
-		<div th:text="${post.title}" />
+		<a th:href="@{'/blog/posts/' + ${post.id} }"><span th:text="${post.title}"/></a>
 		<p th:text="${post.summary}" />
 	</div>
 </div>

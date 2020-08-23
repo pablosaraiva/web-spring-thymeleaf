@@ -16,12 +16,20 @@ public class BlogService {
     private List<BlogPost> generatePosts(int numberOfPosts) {
         final List<BlogPost> blogPosts = new ArrayList<>(numberOfPosts);
         for (int i = 0; i < numberOfPosts; i++) {
-            blogPosts.add(new BlogPost(
-                    "Post " + UUID.randomUUID(),
-                    "This is the content",
-                    "This is the summary", LocalDateTime.of(2020, 8, 22, 8, 18)));
+            blogPosts.add(buildFakePost(UUID.randomUUID().toString()));
         }
 
         return blogPosts;
+    }
+
+    public BlogPost findById(String id) {
+        return buildFakePost(id);
+    }
+
+    private BlogPost buildFakePost(String id) {
+        return new BlogPost(
+                "Post " + id,
+                "This is the content",
+                "This is the summary", LocalDateTime.of(2020, 8, 22, 8, 18));
     }
 }
