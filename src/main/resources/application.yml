@@ -1,3 +1,4 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
+    # url, username and password need to be provided as environment variables
