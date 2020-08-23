@@ -1,4 +1,13 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    # url, username and password need to be provided as environment variables
+    #url: provided-via-env-variable
+    #username: provided-via-env-variable
+    #password: provided-via-env-variable
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:fake-client-id}
+            client-secret: ${GOOGLE_CLIENT_SECRET:fake-client-secret}

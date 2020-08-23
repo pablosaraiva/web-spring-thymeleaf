@@ -1,19 +1,19 @@
 package com.pablosaraiva.web.blog;
 
+import com.pablosaraiva.web.data.DbEntity;
 import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
-public class BlogPost {
+public class BlogPost implements DbEntity {
     @Id
-    private final String id;
+    private String id;
     private final String title;
     private final String content;
     private final String summary;
     private final LocalDateTime dateTime;
 
-    public BlogPost(String id, String title, String content, String summary, LocalDateTime dateTime) {
-        this.id = id;
+    public BlogPost(String title, String content, String summary, LocalDateTime dateTime) {
         this.title = title;
         this.content = content;
         this.summary = summary;
@@ -38,5 +38,9 @@ public class BlogPost {
 
     public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

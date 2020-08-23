@@ -20,4 +20,7 @@ public class BlogService {
         return blogRepository.findById(id).orElse(null);
     }
 
+    public void save(BlogPost blogPost) {
+        blogRepository.save(blogPost);
+    }
 }

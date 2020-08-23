@@ -1,0 +1,26 @@
+<!--suppress ALL -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>pablosaraiva.com</title>
+	<link rel="stylesheet" type="text/css" href="/pablosaraiva.css">
+</head>
+
+<body>
+<div class="header">
+	<div th:insert="fragments/header :: header"></div>
+</div>
+
+<div class="main">
+	<p><a th:href="@{'/secure/blog/create-post'}">Create post</a></p>
+
+	<div th:each="post: ${posts}">
+		<a th:href="@{'/blog/posts/' + ${post.id} }"><span th:text="${post.title}"/></a>
+		<p th:text="${post.summary}" />
+		<p class="small" th:text="${post.dateTime}"/>
+	</div>
+</div>
+
+</body>
+</html>
