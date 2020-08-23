@@ -68,6 +68,10 @@ pre {
 	color: #999999;
 }
 
+p.small {
+	font-size: 15px;
+}
+
 @keyframes blinker {
 	to {
 		opacity: 0;

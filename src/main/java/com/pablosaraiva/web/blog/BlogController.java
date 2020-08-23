@@ -1,5 +1,6 @@
 package com.pablosaraiva.web.blog;
 
+import com.github.rjeschke.txtmark.Processor;
 import com.pablosaraiva.web.blog.BlogService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +23,13 @@ public class BlogController {
 
     @GetMapping("/blog/posts/{id}")
     public String getBlogPost(@PathVariable("id") String id, Model model) {
-        model.addAttribute("post", blogService.findById(id));
+        final BlogPost blogPost = blogService.findById(id);
+
+        if (blogPost != null) {
+            String contentHtml = Processor.process(blogPost.getContent());
+            model.addAttribute("renderedContent", contentHtml);
+        }
+        model.addAttribute("post", blogPost);
 
         return "blog-post";
     }

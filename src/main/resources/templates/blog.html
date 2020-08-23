@@ -13,11 +13,10 @@
 </div>
 
 <div class="main">
-	<h1 class="page-title">Blog</h1>
-
 	<div th:each="post: ${posts}">
 		<a th:href="@{'/blog/posts/' + ${post.id} }"><span th:text="${post.title}"/></a>
 		<p th:text="${post.summary}" />
+		<p class="small" th:text="${post.dateTime}"/>
 	</div>
 </div>
 
