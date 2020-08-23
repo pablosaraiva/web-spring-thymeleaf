@@ -39,6 +39,7 @@ public class BlogService {
                 "they have known vulnerabilities.\n" +
                 "\n" +
                 "So I decided to do some check on my side.\n" +
+                 "![alt text](/images/pablo.jpg \"Logo Title Text 1\")\n" +
                 "\n" +
                 "First, I learned how to check it with nmap what protocols my server was accepting.\n" +
                 "\n" +
@@ -192,11 +193,11 @@ public class BlogService {
                 "## DNS CAA Entry\n" +
                 "\n" +
                 "My DNS now have a CAA entry in place.\n" +
-                "\n" +
+                "<pre>\n" +
                 "| Type   | Domain Name      | Value           | TTL  | Tag   |\n" +
-                "|--------|------------------|-----------------|------|-------|  \n" +
-                "| CAA    | pablosaraiva.com | letsencrypt.org | 3599 | issue |  \n" +
-                "\n" +
+                "|--------|------------------|-----------------|------|-------|\n" +
+                "| CAA    | pablosaraiva.com | letsencrypt.org | 3599 | issue |\n" +
+                "</pre>\n" +
                 "## HSTS\n" +
                 "\n" +
                 "I only serve my web app via https.\n" +
