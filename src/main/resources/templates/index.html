@@ -28,6 +28,10 @@
 	<span th:if="${principalName} != null">
 		Logged in as <span th:text="${principalName}"></span>
 	</span>
+
+	<span id="pi" th:if="${principalName} == null">
+		<a th:href="@{/secure/blog}">π</a>
+	</span>
 </div>
 
 </body>
