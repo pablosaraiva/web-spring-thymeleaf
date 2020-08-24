@@ -37,6 +37,12 @@ div.footer {
 	animation: blinker 1.0s cubic-bezier(.5, 0, 1, 1) infinite alternate;
 }
 
+@keyframes blinker {
+	to {
+		opacity: 0;
+	}
+}
+
 div span.menu-item {
 	text-align: right;
 }
@@ -72,8 +78,30 @@ p.small {
 	font-size: 15px;
 }
 
-@keyframes blinker {
-	to {
-		opacity: 0;
-	}
+input.ui-text {
+	width: 90%;
+	background-color: black;
+	color: white;
+	border-color: limegreen;
+	border-style: solid;
+	border-width: thin;
+	margin-left: 5px;
+}
+
+textarea {
+	width: 90%;
+	background-color: black;
+	color: white;
+	border-color: limegreen;
+	border-style: solid;
+	border-width: thin;
+	margin-left: 5px;
+}
+
+#post-content {
+	height: 350px;
+}
+
+#post-summary {
+	height: 100px;
 }

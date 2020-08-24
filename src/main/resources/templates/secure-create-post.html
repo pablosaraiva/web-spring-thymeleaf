@@ -14,10 +14,13 @@
 
 <div class="main">
     <form th:action="@{/secure/blog/create-post}" th:object="${postForm}" method="post">
-        <p>Title: <input type="text" th:field="*{title}"/></p>
-        <p>Summary: <input type="text" th:field="*{summary}"/></p>
-        <p>Content: <input type="text" th:field="*{content}"/></p>
-        <p><input type="submit" value="Submit"/></p>
+        Title:<br>
+        <input class="ui-text" type="text" th:field="*{title}"/><br>
+        Summary:<br>
+        <textarea id="post-summary" th:field="*{summary}"/><br>
+        Content:<br>
+        <textarea id ="post-content" th:field="*{content}"/><br>
+        <input class="ui-button" type="submit" value="Send"/><br>
     </form>
 </div>
 
