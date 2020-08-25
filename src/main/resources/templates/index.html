@@ -25,11 +25,7 @@
 
 	<p>Source coude is available on <a href="https://github.com/pablosaraiva/web-spring-thymeleaf"> github</a>.</p>
 
-	<span th:if="${principalName} != null">
-		Logged in as <span th:text="${principalName}"></span>
-	</span>
-
-	<span id="pi" th:if="${principalName} == null">
+	<span id="pi">
 		<a th:href="@{/secure/blog}">π</a>
 	</span>
 </div>

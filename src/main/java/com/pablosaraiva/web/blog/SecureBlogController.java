@@ -45,9 +45,11 @@ public class SecureBlogController {
     }
 
     @PostMapping("/blog/create-post")
-    public String postCreatePostPage(@ModelAttribute("postForm") NewBlogPostDto dto) {
+    public String postCreatePostPage(@ModelAttribute("postForm") NewBlogPostDto dto, Model model) {
         final BlogPost blogPost = new BlogPost(dto.getTitle(), dto.getContent(), dto.getSummary(), LocalDateTime.now());
         blogService.save(blogPost);
+
+        getBlog(model);
 
         return "secure-blog";
     }
