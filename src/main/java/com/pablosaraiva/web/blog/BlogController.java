@@ -16,7 +16,7 @@ public class BlogController {
 
     @GetMapping("/blog")
     public String getBlog(Model model) {
-        model.addAttribute("posts", blogService.getLastPostsSummaries(1));
+        model.addAttribute("posts", blogService.getLatestPublishedPosts());
         return "blog";
     }
 

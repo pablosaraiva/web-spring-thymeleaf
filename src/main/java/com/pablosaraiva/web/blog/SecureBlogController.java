@@ -1,13 +1,11 @@
 package com.pablosaraiva.web.blog;
 
 import com.github.rjeschke.txtmark.Processor;
-import org.apache.tomcat.jni.Local;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
 
 @Controller
 @RequestMapping("/secure")
@@ -21,7 +19,7 @@ public class SecureBlogController {
 
     @GetMapping("/blog")
     public String getBlog(Model model) {
-        model.addAttribute("posts", blogService.getLastPostsSummaries(1));
+        model.addAttribute("posts", blogService.getLatestPosts());
         return "secure-blog";
     }
 
@@ -35,7 +33,7 @@ public class SecureBlogController {
         }
         model.addAttribute("post", blogPost);
 
-        return "secure-blog-post";
+        return "blog-post";
     }
 
     @GetMapping("/blog/create-post")
@@ -46,7 +44,7 @@ public class SecureBlogController {
 
     @PostMapping("/blog/create-post")
     public String postCreatePostPage(@ModelAttribute("postForm") NewBlogPostDto dto, Model model) {
-        final BlogPost blogPost = new BlogPost(dto.getTitle(), dto.getContent(), dto.getSummary(), LocalDateTime.now());
+        final BlogPost blogPost = new BlogPost(dto.getTitle(), dto.getContent(), dto.getSummary(), LocalDateTime.now(), false);
         blogService.save(blogPost);
 
         getBlog(model);
@@ -54,4 +52,12 @@ public class SecureBlogController {
         return "secure-blog";
     }
 
+    @GetMapping("/blog/publish/{id}")
+    public String publishBlogPost(@PathVariable String id, Model model) {
+        blogService.publish(id);
+
+        getBlog(model);
+
+        return "secure-blog";
+    }
 }

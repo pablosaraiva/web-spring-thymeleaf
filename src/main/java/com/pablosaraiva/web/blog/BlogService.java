@@ -12,9 +12,14 @@ public class BlogService {
         this.blogRepository = blogRepository;
     }
 
-    public List<BlogPost> getLastPostsSummaries(int numberOfPosts) {
+    public List<BlogPost> getLatestPosts() {
         return blogRepository.findAllByDateDesc();
     }
+
+    public List<BlogPost> getLatestPublishedPosts() {
+        return blogRepository.findAllPublishedByDateDesc();
+    }
+
 
     public BlogPost findById(String id) {
         return blogRepository.findById(id).orElse(null);
@@ -22,5 +27,14 @@ public class BlogService {
 
     public void save(BlogPost blogPost) {
         blogRepository.save(blogPost);
+    }
+
+    public void publish(String id) {
+        final BlogPost post = findById(id);
+        if (post != null) {
+            post.setPublished(true);
+        }
+
+        save(post);
     }
 }

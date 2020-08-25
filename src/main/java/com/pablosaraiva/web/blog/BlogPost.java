@@ -12,12 +12,14 @@ public class BlogPost implements DbEntity {
     private final String content;
     private final String summary;
     private final LocalDateTime dateTime;
+    private boolean published;
 
-    public BlogPost(String title, String content, String summary, LocalDateTime dateTime) {
+    public BlogPost(String title, String content, String summary, LocalDateTime dateTime, boolean published) {
         this.title = title;
         this.content = content;
         this.summary = summary;
         this.dateTime = dateTime;
+        this.published = published;
     }
 
     public String getTitle() {
@@ -34,6 +36,14 @@ public class BlogPost implements DbEntity {
 
     public LocalDateTime getDateTime() {
         return dateTime;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
     }
 
     public String getId() {

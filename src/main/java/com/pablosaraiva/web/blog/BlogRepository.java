@@ -13,4 +13,8 @@ public interface BlogRepository extends CrudRepository<BlogPost, String> {
 
     @Query("select * from blog_post order by date_time desc")
     List<BlogPost> findAllByDateDesc();
+
+    @Query("select * from blog_post where published = true order by date_time desc")
+    List<BlogPost> findAllPublishedByDateDesc();
+
 }
