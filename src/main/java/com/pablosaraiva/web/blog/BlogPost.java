@@ -8,9 +8,9 @@ import java.time.LocalDateTime;
 public class BlogPost implements DbEntity {
     @Id
     private String id;
-    private final String title;
-    private final String content;
-    private final String summary;
+    private String title;
+    private String content;
+    private String summary;
     private final LocalDateTime dateTime;
     private boolean published;
 
@@ -22,16 +22,38 @@ public class BlogPost implements DbEntity {
         this.published = published;
     }
 
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
         return content;
     }
 
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public String getSummary() {
         return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
     }
 
     public LocalDateTime getDateTime() {
@@ -44,13 +66,5 @@ public class BlogPost implements DbEntity {
 
     public void setPublished(boolean published) {
         this.published = published;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 }

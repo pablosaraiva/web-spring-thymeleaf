@@ -16,7 +16,7 @@
 	<p><a th:href="@{'/secure/blog/create-post'}">Create post</a></p>
 
 	<div th:each="post: ${posts}">
-		<a th:href="@{'/blog/posts/' + ${post.id} }"><span th:text="${post.title}"/></a>
+		<a th:href="@{'/secure/blog/posts/' + ${post.id} }"><span th:text="${post.title}"/></a>
 		<span th:if="!${post.published}">
 			<a th:href="@{'/secure/blog/publish/' + ${post.id}}">[publish]</a>
 		</span>

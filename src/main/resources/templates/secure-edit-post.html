@@ -13,7 +13,8 @@
 </div>
 
 <div class="main">
-    <form th:action="@{/secure/blog/create-post}" th:object="${postForm}" method="post">
+    <form th:action="@{/secure/blog/save-post}" th:object="${postForm}" method="post">
+        <input type="hidden" th:field="*{id}"/>
         Title:<br>
         <input class="ui-text" type="text" th:field="*{title}"/><br>
         Summary:<br>

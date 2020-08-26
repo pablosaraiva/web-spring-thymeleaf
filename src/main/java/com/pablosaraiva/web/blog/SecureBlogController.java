@@ -33,23 +33,20 @@ public class SecureBlogController {
         }
         model.addAttribute("post", blogPost);
 
-        return "blog-post";
+        return "secure-blog-post";
     }
 
     @GetMapping("/blog/create-post")
     public String getCreatePostPage(Model model) {
-        model.addAttribute("postForm", new NewBlogPostDto());
-        return "secure-create-post";
+        model.addAttribute("postForm", new EditBlogPostDto());
+        return "secure-edit-post";
     }
 
-    @PostMapping("/blog/create-post")
-    public String postCreatePostPage(@ModelAttribute("postForm") NewBlogPostDto dto, Model model) {
-        final BlogPost blogPost = new BlogPost(dto.getTitle(), dto.getContent(), dto.getSummary(), LocalDateTime.now(), false);
-        blogService.save(blogPost);
-
-        getBlog(model);
-
-        return "secure-blog";
+    @GetMapping("/blog/edit-post/{id}")
+    public String getEditPostPage(@PathVariable String id, Model model) {
+        final BlogPost post = blogService.findById(id);
+        model.addAttribute("postForm", new EditBlogPostDto(post));
+        return "secure-edit-post";
     }
 
     @GetMapping("/blog/publish/{id}")
@@ -59,5 +56,33 @@ public class SecureBlogController {
         getBlog(model);
 
         return "secure-blog";
+    }
+
+    @PostMapping("/blog/save-post")
+    public String postEditPostPage(@ModelAttribute("postForm") EditBlogPostDto dto, Model model) {
+        if (dto.getId() == null || dto.getId().isBlank()) {
+            doCreatePost(dto);
+        } else {
+            doEditPost(dto);
+        }
+
+        getBlog(model);
+
+        return "secure-blog";
+    }
+
+    private void doEditPost(EditBlogPostDto dto) {
+        final BlogPost blogPost = blogService.findById(dto.getId());
+        if (blogPost != null) {
+            blogPost.setContent(dto.getContent());
+            blogPost.setSummary(dto.getSummary());
+            blogPost.setTitle(dto.getTitle());
+            blogService.save(blogPost);
+        }
+    }
+
+    private void doCreatePost(EditBlogPostDto dto) {
+        final BlogPost blogPost = new BlogPost(dto.getTitle(), dto.getContent(), dto.getSummary(), LocalDateTime.now(), false);
+        blogService.save(blogPost);
     }
 }
