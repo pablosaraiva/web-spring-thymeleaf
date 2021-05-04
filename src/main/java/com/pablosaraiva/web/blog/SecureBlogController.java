@@ -58,6 +58,15 @@ public class SecureBlogController {
         return "secure-blog";
     }
 
+    @GetMapping("/blog/hide/{id}")
+    public String hideBlogPost(@PathVariable String id, Model model) {
+        blogService.hide(id);
+
+        getBlog(model);
+
+        return "secure-blog";
+    }
+
     @PostMapping("/blog/save-post")
     public String postEditPostPage(@ModelAttribute("postForm") EditBlogPostDto dto, Model model) {
         if (dto.getId() == null || dto.getId().isBlank()) {

@@ -20,6 +20,9 @@
 		<span th:if="!${post.published}">
 			<a th:href="@{'/secure/blog/publish/' + ${post.id}}">[publish]</a>
 		</span>
+		<span th:if="${post.published}">
+			<a th:href="@{'/secure/blog/hide/' + ${post.id}}">[hide]</a>
+		</span>
 		<p th:text="${post.summary}" />
 		<p class="small" th:text="${post.dateTime}"/>
 	</div>

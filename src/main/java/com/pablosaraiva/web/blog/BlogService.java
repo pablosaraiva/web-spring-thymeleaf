@@ -37,4 +37,13 @@ public class BlogService {
 
         save(post);
     }
+
+    public void hide(String id) {
+        final BlogPost post = findById(id);
+        if (post != null) {
+            post.setPublished(false);
+        }
+
+        save(post);
+    }
 }
