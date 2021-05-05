@@ -2,30 +2,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>pablosaraiva.com</title>
-	<link rel="stylesheet" type="text/css" href="/pablosaraiva.css">
+    <meta charset="UTF-8">
+    <title>pablosaraiva.com</title>
+    <link rel="stylesheet" type="text/css" href="/pablosaraiva.css">
+
+    <!-- Cookie Consent by https://www.PrivacyPolicies.com -->
+    <script type="text/javascript"
+            src="//www.privacypolicies.com/public/cookie-consent/3.1.0/cookie-consent.js"></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function () {
+            cookieconsent.run({
+                "notice_banner_type": "simple",
+                "consent_type": "express",
+                "palette": "dark",
+                "language": "en",
+                "website_name": "pablosaraiva.com",
+                "cookies_policy_url": "https://www.privacypolicies.com/live/5b75f1ac-8c2f-4d07-a295-02b0fa830b33"
+            });
+        });
+    </script>
+
+    <!-- Unnamed script -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script type="text/plain" cookie-consent="tracking" async
+            src="https://www.googletagmanager.com/gtag/js?id=G-2SCTLDZWZK"></script>
+    <script type="text/plain" cookie-consent="tracking">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2SCTLDZWZK');
+
+    </script>
+    <!-- end of Unnamed script-->
+
+    <noscript>Cookie Consent by <a href="https://www.PrivacyPolicies.com/cookie-consent/" rel="nofollow noopener">PrivacyPolicies.com</a>
+    </noscript>
+    <!-- End Cookie Consent -->
 </head>
 
 <body>
 <div class="header">
-	<div th:insert="fragments/header :: header"></div>
+    <div th:insert="fragments/header :: header"></div>
 </div>
 
 <div class="main">
-	<p><a th:href="@{'/secure/blog/create-post'}">Create post</a></p>
+    <p><a th:href="@{'/secure/blog/create-post'}">Create post</a></p>
 
-	<div th:each="post: ${posts}">
-		<a th:href="@{'/secure/blog/posts/' + ${post.id} }"><span th:text="${post.title}"/></a>
-		<span th:if="!${post.published}">
+    <div th:each="post: ${posts}">
+        <a th:href="@{'/secure/blog/posts/' + ${post.id} }"><span th:text="${post.title}"/></a>
+        <span th:if="!${post.published}">
 			<a th:href="@{'/secure/blog/publish/' + ${post.id}}">[publish]</a>
 		</span>
-		<span th:if="${post.published}">
+        <span th:if="${post.published}">
 			<a th:href="@{'/secure/blog/hide/' + ${post.id}}">[hide]</a>
 		</span>
-		<p th:text="${post.summary}" />
-		<p class="small" th:text="${post.dateTime}"/>
-	</div>
+        <p th:text="${post.summary}"/>
+        <p class="small" th:text="${post.dateTime}"/>
+    </div>
 </div>
 
 </body>
